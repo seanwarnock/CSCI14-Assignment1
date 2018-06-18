@@ -29,7 +29,7 @@ int main()
   char  CustomerID[10];
   float ShippingRate = .1;
   float SalesTaxRate = .095;
-  int  Whizbangs, Gizmos, Widgets, Wabbits, Elmers = 0;
+  int  WhizbangsQty = 0, GizmosQty = 0, WidgetsQty = 0, WabbitsQty = 0, ElmersQty = 0; //defining an object for this would be nice.
 
 
 //*********************************************************************************************
@@ -53,11 +53,11 @@ int main()
     {
       system("cls");
       cout << "What would you like today?\n";
-      cout << "[1] Whizbangs " << 5.00 << "\n";
-      cout << "[2] Gizmos " << 10.15 << "\n";
-      cout << "[3] Widgets " << 5.99 << "\n";
-      cout << "[4] Wabbits " << 7.75 << "\n";
-      cout << "[5] Elmers " << 9.50 << "\n";
+      cout << "[1] Whizbangs " << WhizbangsQty << 5.00 << "\n";
+      cout << "[2] Gizmos " << GizmosQty << 10.15 << "\n";
+      cout << "[3] Widgets " << WidgetsQty << 5.99 << "\n";
+      cout << "[4] Wabbits " << WabbitsQty << 7.75 << "\n";
+      cout << "[5] Elmers " << ElmersQty << 9.50 << "\n";
       cout << "[9] Quit\n";
       cin >> intShit;
 
@@ -65,23 +65,23 @@ int main()
         {
           case 1 : cout << "\nWhizbang quantity to order?";
           cin >> intQty;
-          Whizbangs = Whizbangs + intQty;
+          WhizbangsQty = WhizbangsQty + intQty;
           break;
           case 2 : cout << "\nGizmo quantity to order?";
           cin >> intQty;
-          Gizmos = Gizmos + intQty;
+          GizmosQty = GizmosQty + intQty;
           break;
           case 3 : cout << "\nWidget quantity to order?";
           cin >> intQty;
-          Widgets = Widgets + intQty;
+          WidgetsQty = WidgetsQty + intQty;
           break;
           case 4 : cout << "\nWabbit quantity to order?";
           cin >> intQty;
-          Wabbits = Wabbits + intQty;
+          WabbitsQty = WabbitsQty + intQty;
           break;
           case 5 : cout << "\nElmers quantity to order?";
           cin >> intQty;
-          Elmers = Elmers + intQty;
+          ElmersQty = ElmersQty + intQty;
           break;
           case 9 : intQty = 0;
           break;
@@ -89,12 +89,12 @@ int main()
       } while (intQty !=0 );
 
     system("cls");
-    cout << "Item - Qty";
-    cout << "Whizbangs " << Whizbangs << "\n";
-    cout << "Gizmos " << Gizmos << "\n";
-    cout << "Widgets " << Widgets << "\n";
-    cout << "Wabbits " << Wabbits << "\n";
-    cout << "Elmers " << Elmers << "\n";
+    cout << "Item - Qty\n";
+    cout << "Whizbangs " << WhizbangsQty << "\n";
+    cout << "Gizmos " << GizmosQty << "\n";
+    cout << "Widgets " << WidgetsQty << "\n";
+    cout << "Wabbits " << WabbitsQty << "\n";
+    cout << "Elmers " << ElmersQty << "\n";
 
     cout << "Process another order [Y] or N: ";
     cin >> RunAgain;

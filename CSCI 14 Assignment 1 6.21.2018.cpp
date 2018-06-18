@@ -53,10 +53,10 @@ int main()
     {
       system("cls");
       cout << "What would you like today?\n";
-      cout << "[1] Whizbangs " <<  5.00 << "\n";
-      cout << "[2] Gizmos " <<    10.15 << "\n";
-      cout << "[3] Widgets " <<   5.99 << "\n";
-      cout << "[4] Wabbits " <<   7.75 << "\n";
+      cout << "[1] Whizbangs " << 5.00 << "\n";
+      cout << "[2] Gizmos " << 10.15 << "\n";
+      cout << "[3] Widgets " << 5.99 << "\n";
+      cout << "[4] Wabbits " << 7.75 << "\n";
       cout << "[5] Elmers " << 9.50 << "\n";
       cout << "[9] Quit\n";
       cin >> intShit;

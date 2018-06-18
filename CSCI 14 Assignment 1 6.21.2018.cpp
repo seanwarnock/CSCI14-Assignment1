@@ -29,32 +29,55 @@ int main()
   char  CustomerID[10];
   float ShippingRate = .1;
   float SalesTaxRate = .095;
+  int  Whizbangs, Gizmos, Widgets, Wabbits, Elmers = 0;
 
 
 //*********************************************************************************************
   do
   {
-using namespace std;
+//using namespace std;
     //Local Variables
+    int intQty = 0;
+    int intShit = 0;
 
 
-
-    system("cls"); //really odd, I don't know what header this is coming from.  winsock2.h is giving me access.
+    system("cls"); //really odd, I don't know what header this is coming from.  winsock2.h is giving me access but that is total overkill right now.
 
     cout << CompanyName << "\n";
     cout << "Account Number:\n";
     cin >> CustomerID;
 
-    cout << "whizbags    5.00\n";
-    cout << "gismos      10.15\n";
-    cout << "widgets     5.99\n";
-    cout << "wabbits     7.75\n";
-    cout << "elmers      9.50\n";
+    cout << "[1] Whizbangs " <<  5.00 << "\n";
+    cout << "[2] Gizmos " <<    10.15 << "\n";
+    cout << "[3] Widgets " <<   5.99 << "\n";
+    cout << "[4] Wabbits " <<   7.75 << "\n";
+    cout << "[5] Elmers " << 9.50 << "\n";
+
+      do
+      {
+        cin >> intShit;
+        switch (intShit)
+          {
+              case 1 : cout << "Whizbang";
+              break;
+              case 2 : cout << "Gizmo";
+              break;
+              case 3 : cout << "Widget";
+              break;
+              case 4 : cout << "Wabbit";
+              break;
+              case 5 : cout << "Elmers";
+              break;
+          }
+      } while (intQty !=0 );
+
+
+
 
     cout << "Process another order [Y] or N: ";
     cin >> RunAgain;
   } while ((RunAgain != "n") && (RunAgain != "N"));
 
 
-  return 0; //Yes this is here so it does not show as an error condition on program termination.
+  return 0; //Yes this is here so it does not show as an error condition on program termination in Windows.
 }

@@ -6,10 +6,10 @@ https://github.com/seanwarnock/CSCI14-Assignment1
 */
 
 #include <iostream>
+#include <iomanip>
 #ifdef _WIN32
   #include <windows.h>
   using namespace std;
-
 #endif
 
 
@@ -89,20 +89,20 @@ int main()
     system("cls");
     cout << CompanyName << "\n";
     cout << "Victim Number(customer number): " << CustomerID << "\n";
-    cout << "Item - Qty - \n";
-    cout << "Whizbangs " << WhizbangsQty << (WhizbangsQty * WhizbangsPrice) << "\n";
-    cout << "Gizmos " << GizmosQty << (GizmosQty * GizmosPrice) << "\n";
-    cout << "Widgets " << WidgetsQty << (WidgetsQty * WidgetsPrice) << "\n";
-    cout << "Wabbits " << WabbitsQty << (WabbitsQty * WabbitsPrice) << "\n";
-    cout << "Elmers " << ElmersQty << (ElmersQty * ElmersPrice) << "\n";
+    cout << setw(20) << "Item" << setw(20) <<  "- Qty - \n";
+    cout << setw(20) << "Whizbangs " << WhizbangsQty << (WhizbangsQty * WhizbangsPrice) << "\n";
+    cout << setw(20) << "Gizmos " << GizmosQty << (GizmosQty * GizmosPrice) << "\n";
+    cout << setw(20) << "Widgets " << WidgetsQty << (WidgetsQty * WidgetsPrice) << "\n";
+    cout << setw(20) << "Wabbits " << WabbitsQty << (WabbitsQty * WabbitsPrice) << "\n";
+    cout << setw(20) << "Elmers " << ElmersQty << (ElmersQty * ElmersPrice) << "\n";
 
     SubTotal = (WhizbangsQty * WhizbangsPrice) + (GizmosQty * GizmosPrice) + (WidgetsQty * WidgetsPrice) + (WabbitsQty * WabbitsPrice) + (ElmersQty * ElmersPrice);
 
-    cout << "Subtotal : " << SubTotal << "\n";
-    cout << "Shipping :" << (SubTotal * ShippingRate) << "\n";
-    cout << "Sales Tax :" << (SubTotal * SalesTaxRate) << "\n";
+    cout << setw(20) << "Subtotal : " << SubTotal << "\n";
+    cout << setw(20) << "Shipping : " << (SubTotal * ShippingRate) << "\n";
+    cout << setw(20) << "Sales Tax : " << (SubTotal * SalesTaxRate) << "\n";
     //Yes I know but I don't want more variables, this calculation is negligible.
-    cout << "Total : " << ((SubTotal * ShippingRate) + (SubTotal * ShippingRate) + SubTotal) << "\n";
+    cout << setw(20) << "Total : " << ((SubTotal * ShippingRate) + (SubTotal * ShippingRate) + SubTotal) << "\n";
 
     cout << "Process another order [Y] or N: ";
     cin >> RunAgain;

@@ -6,37 +6,35 @@ https://github.com/seanwarnock/CSCI14-Assignment1
 */
 
 #include <iostream>
-//#include <ctype.h>
-#include <winsock2.h>
+#ifdef _WIN32
+  #include <windows.h>
+  using namespace std;
+
+#endif
 
 
 using namespace std;
 
 int main()
 {
-
-  /*
-  whizbags    5.00
-  gismos      10.15
-  widgets     5.99
-  wabbits     7.75
-  elmers      9.50
-  */
-
 //Local variables
   string RunAgain;
-  string  CompanyName = "Shodd Dee Manufacturing Inc.";
+  const string  CompanyName = "Shodd Dee Manufacturing Inc.";
   char  CustomerID[10];
   float ShippingRate = .1;
   float SalesTaxRate = .095;
-  int  WhizbangsQty = 0, GizmosQty = 0, WidgetsQty = 0, WabbitsQty = 0, ElmersQty = 0; //defining an object for this would be nice.
 
 
 //*********************************************************************************************
   do
   {
-//using namespace std;
-    //Local Variables
+    int  WhizbangsQty = 0, GizmosQty = 0, WidgetsQty = 0, WabbitsQty = 0, ElmersQty = 0; //defining an object for this would be nice.
+    float WhizbangsPrice = 5.00;
+    float GizmosPrice = 10.15;
+    float WidgetsPrice = 5.99;
+    float WabbitsPrice = 7.75;
+    float ElmersPrice = 9.50;
+    float SubTotal = 0;
     int intQty = 0;
     int intShit = 0;
 
@@ -47,39 +45,37 @@ int main()
     cout << "Account Number:\n";
     cin >> CustomerID;
 
-
-
     do
     {
       system("cls");
       cout << "What would you like today?\n";
-      cout << "[1] Whizbangs " << WhizbangsQty << 5.00 << "\n";
-      cout << "[2] Gizmos " << GizmosQty << 10.15 << "\n";
-      cout << "[3] Widgets " << WidgetsQty << 5.99 << "\n";
-      cout << "[4] Wabbits " << WabbitsQty << 7.75 << "\n";
-      cout << "[5] Elmers " << ElmersQty << 9.50 << "\n";
+      cout << "[1] Whizbangs " << WhizbangsQty << WhizbangsPrice << "\n";
+      cout << "[2] Gizmos " << GizmosQty << GizmosPrice << "\n";
+      cout << "[3] Widgets " << WidgetsQty << WidgetsPrice << "\n";
+      cout << "[4] Wabbits " << WabbitsQty << WabbitsPrice << "\n";
+      cout << "[5] Elmers " << ElmersQty << ElmersPrice << "\n";
       cout << "[9] Quit\n";
       cin >> intShit;
 
       switch (intShit)
         {
-          case 1 : cout << "\nWhizbang quantity to order?";
+          case 1 : cout << "\nWhizbang quantity to order? :";
           cin >> intQty;
           WhizbangsQty = WhizbangsQty + intQty;
           break;
-          case 2 : cout << "\nGizmo quantity to order?";
+          case 2 : cout << "\nGizmo quantity to order? :";
           cin >> intQty;
           GizmosQty = GizmosQty + intQty;
           break;
-          case 3 : cout << "\nWidget quantity to order?";
+          case 3 : cout << "\nWidget quantity to order? :";
           cin >> intQty;
           WidgetsQty = WidgetsQty + intQty;
           break;
-          case 4 : cout << "\nWabbit quantity to order?";
+          case 4 : cout << "\nWabbit quantity to order? :";
           cin >> intQty;
           WabbitsQty = WabbitsQty + intQty;
           break;
-          case 5 : cout << "\nElmers quantity to order?";
+          case 5 : cout << "\nElmers quantity to order? :";
           cin >> intQty;
           ElmersQty = ElmersQty + intQty;
           break;
@@ -88,13 +84,25 @@ int main()
         }
       } while (intQty !=0 );
 
+      //Need to sort this out to only take integer values.
+
     system("cls");
-    cout << "Item - Qty\n";
-    cout << "Whizbangs " << WhizbangsQty << "\n";
-    cout << "Gizmos " << GizmosQty << "\n";
-    cout << "Widgets " << WidgetsQty << "\n";
-    cout << "Wabbits " << WabbitsQty << "\n";
-    cout << "Elmers " << ElmersQty << "\n";
+    cout << CompanyName << "\n";
+    cout << "Victim Number(customer number): " << CustomerID << "\n";
+    cout << "Item - Qty - \n";
+    cout << "Whizbangs " << WhizbangsQty << (WhizbangsQty * WhizbangsPrice) << "\n";
+    cout << "Gizmos " << GizmosQty << (GizmosQty * GizmosPrice) << "\n";
+    cout << "Widgets " << WidgetsQty << (WidgetsQty * WidgetsPrice) << "\n";
+    cout << "Wabbits " << WabbitsQty << (WabbitsQty * WabbitsPrice) << "\n";
+    cout << "Elmers " << ElmersQty << (ElmersQty * ElmersPrice) << "\n";
+
+    SubTotal = (WhizbangsQty * WhizbangsPrice) + (GizmosQty * GizmosPrice) + (WidgetsQty * WidgetsPrice) + (WabbitsQty * WabbitsPrice) + (ElmersQty * ElmersPrice);
+
+    cout << "Subtotal : " << SubTotal << "\n";
+    cout << "Shipping :" << (SubTotal * ShippingRate) << "\n";
+    cout << "Sales Tax :" << (SubTotal * SalesTaxRate) << "\n";
+    //Yes I know but I don't want more variables, this calculation is negligible.
+    cout << "Total : " << ((SubTotal * ShippingRate) + (SubTotal * ShippingRate) + SubTotal) << "\n";
 
     cout << "Process another order [Y] or N: ";
     cin >> RunAgain;

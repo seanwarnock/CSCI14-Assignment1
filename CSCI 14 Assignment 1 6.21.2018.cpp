@@ -35,7 +35,7 @@ int main()
     float WabbitsPrice = 7.75;
     float ElmersPrice = 9.50;
     float SubTotal = 0;
-    float intQty = 0;
+    float intQty = 0; //Tired of trying to fight cin to sanitize non-integer input.
     int intShit = 0;
 
 

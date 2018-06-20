@@ -35,7 +35,7 @@ int main()
     float WabbitsPrice = 7.75;
     float ElmersPrice = 9.50;
     float SubTotal = 0;
-    int intQty = 0;
+    float intQty = 0;
     int intShit = 0;
 
 
@@ -49,11 +49,11 @@ int main()
     {
       system("cls");
       cout << "What would you like today?\n";
-      cout << "[1] Whizbangs " << WhizbangsQty << WhizbangsPrice << "\n";
-      cout << "[2] Gizmos " << GizmosQty << GizmosPrice << "\n";
-      cout << "[3] Widgets " << WidgetsQty << WidgetsPrice << "\n";
-      cout << "[4] Wabbits " << WabbitsQty << WabbitsPrice << "\n";
-      cout << "[5] Elmers " << ElmersQty << ElmersPrice << "\n";
+      cout << "[1] Whizbangs " << WhizbangsQty << "\t" << WhizbangsPrice << "\n";
+      cout << "[2] Gizmos " << GizmosQty << "\t"  << GizmosPrice << "\n";
+      cout << "[3] Widgets " << WidgetsQty << "\t"  << WidgetsPrice << "\n";
+      cout << "[4] Wabbits " << WabbitsQty << "\t"  << WabbitsPrice << "\n";
+      cout << "[5] Elmers " << ElmersQty << "\t"  << ElmersPrice << "\n";
       cout << "[9] Quit\n";
       cin >> intShit;
 
@@ -90,11 +90,11 @@ int main()
     cout << CompanyName << "\n";
     cout << "Victim Number(customer number): " << CustomerID << "\n";
     cout << setw(20) << "Item" << setw(20) <<  "- Qty - \n";
-    cout << setw(20) << "Whizbangs " << WhizbangsQty << (WhizbangsQty * WhizbangsPrice) << "\n";
-    cout << setw(20) << "Gizmos " << GizmosQty << (GizmosQty * GizmosPrice) << "\n";
-    cout << setw(20) << "Widgets " << WidgetsQty << (WidgetsQty * WidgetsPrice) << "\n";
-    cout << setw(20) << "Wabbits " << WabbitsQty << (WabbitsQty * WabbitsPrice) << "\n";
-    cout << setw(20) << "Elmers " << ElmersQty << (ElmersQty * ElmersPrice) << "\n";
+    cout << setw(20) << "Whizbangs " << WhizbangsQty << "\t"  << (WhizbangsQty * WhizbangsPrice) << "\n";
+    cout << setw(20) << "Gizmos " << GizmosQty << "\t"  << (GizmosQty * GizmosPrice) << "\n";
+    cout << setw(20) << "Widgets " << WidgetsQty << "\t"  << (WidgetsQty * WidgetsPrice) << "\n";
+    cout << setw(20) << "Wabbits " << WabbitsQty << "\t"  << (WabbitsQty * WabbitsPrice) << "\n";
+    cout << setw(20) << "Elmers " << ElmersQty << "\t"  << (ElmersQty * ElmersPrice) << "\n";
 
     SubTotal = (WhizbangsQty * WhizbangsPrice) + (GizmosQty * GizmosPrice) + (WidgetsQty * WidgetsPrice) + (WabbitsQty * WabbitsPrice) + (ElmersQty * ElmersPrice);
 

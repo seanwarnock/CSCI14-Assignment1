@@ -36,10 +36,16 @@ int main()
     float ElmersPrice = 9.50;
     float SubTotal = 0;
     float intQty = 0; //Tired of trying to fight cin to sanitize non-integer input.
+    bool LoopControl = true;
     int intShit = 0;
 
 
-    system("cls"); //really odd, I don't know what header this is coming from.  winsock2.h is giving me access but that is total overkill right now.
+    system("cls");
+
+    //Setup cout output options shamefully stolen from assignment example.
+    cout.precision(2);
+    cout.setf(ios::fixed, ios::floatfield);
+    cout.setf(ios::showpoint);
 
     cout << CompanyName << "\n";
     cout << "Account Number:\n";
@@ -49,60 +55,65 @@ int main()
     {
       system("cls");
       cout << "What would you like today?\n";
-      cout << "[1] Whizbangs " << WhizbangsQty << "\t" << WhizbangsPrice << "\n";
-      cout << "[2] Gizmos " << GizmosQty << "\t"  << GizmosPrice << "\n";
-      cout << "[3] Widgets " << WidgetsQty << "\t"  << WidgetsPrice << "\n";
-      cout << "[4] Wabbits " << WabbitsQty << "\t"  << WabbitsPrice << "\n";
-      cout << "[5] Elmers " << ElmersQty << "\t"  << ElmersPrice << "\n";
-      cout << "[9] Quit\n";
+      cout << "Item" << "\t\t" << "Quantity" << "\t" << "Price\n";
+      cout << "[1] Whizbangs " << "\t"  << WhizbangsQty << "\t\t" << WhizbangsPrice << "\n";
+      cout << "[2] Gizmos " << "\t"  << GizmosQty << "\t\t"  << GizmosPrice << "\n";
+      cout << "[3] Widgets " << "\t"  << WidgetsQty << "\t\t"  << WidgetsPrice << "\n";
+      cout << "[4] Wabbits " << "\t"  << WabbitsQty << "\t\t"  << WabbitsPrice << "\n";
+      cout << "[5] Elmers " << "\t"  << ElmersQty << "\t\t"  << ElmersPrice << "\n";
+      cout << "[9] Place Order\n";
       cin >> intShit;
 
       switch (intShit)
         {
           case 1 : cout << "\nWhizbang quantity to order? :";
           cin >> intQty;
-          WhizbangsQty = WhizbangsQty + intQty;
+          WhizbangsQty = WhizbangsQty + abs(intQty);
           break;
+
           case 2 : cout << "\nGizmo quantity to order? :";
           cin >> intQty;
-          GizmosQty = GizmosQty + intQty;
+          GizmosQty = GizmosQty + abs(intQty);
           break;
+
           case 3 : cout << "\nWidget quantity to order? :";
           cin >> intQty;
-          WidgetsQty = WidgetsQty + intQty;
+          WidgetsQty = WidgetsQty + abs(intQty);
           break;
+
           case 4 : cout << "\nWabbit quantity to order? :";
           cin >> intQty;
-          WabbitsQty = WabbitsQty + intQty;
+          WabbitsQty = WabbitsQty + abs(intQty);
           break;
+
           case 5 : cout << "\nElmers quantity to order? :";
           cin >> intQty;
-          ElmersQty = ElmersQty + intQty;
+          ElmersQty = ElmersQty + abs(intQty);
           break;
-          case 9 : intQty = 0;
+
+          case 9 : LoopControl = false;
           break;
         }
-      } while (intQty !=0 );
+      } while (LoopControl != false );
 
       //Need to sort this out to only take integer values.
 
     system("cls");
     cout << CompanyName << "\n";
     cout << "Victim Number(customer number): " << CustomerID << "\n";
-    cout << setw(20) << "Item" << setw(20) <<  "- Qty - \n";
-    cout << setw(20) << "Whizbangs " << WhizbangsQty << "\t"  << (WhizbangsQty * WhizbangsPrice) << "\n";
-    cout << setw(20) << "Gizmos " << GizmosQty << "\t"  << (GizmosQty * GizmosPrice) << "\n";
-    cout << setw(20) << "Widgets " << WidgetsQty << "\t"  << (WidgetsQty * WidgetsPrice) << "\n";
-    cout << setw(20) << "Wabbits " << WabbitsQty << "\t"  << (WabbitsQty * WabbitsPrice) << "\n";
-    cout << setw(20) << "Elmers " << ElmersQty << "\t"  << (ElmersQty * ElmersPrice) << "\n";
+    cout << "Item" << "\t\t" <<  "Quantity" << "\t" <<  "Extended Price" << "\n";
+    cout << "Whizbangs " << "\t" << WhizbangsQty << "\t\t"  << (WhizbangsQty * WhizbangsPrice) << "\n";
+    cout << "Gizmos " << "\t\t" << GizmosQty << "\t\t"  << (GizmosQty * GizmosPrice) << "\n";
+    cout << "Widgets " << "\t" << WidgetsQty << "\t\t"  << (WidgetsQty * WidgetsPrice) << "\n";
+    cout << "Wabbits " << "\t" << WabbitsQty << "\t\t"  << (WabbitsQty * WabbitsPrice) << "\n";
+    cout << "Elmers " << "\t\t" << ElmersQty << "\t\t"  << (ElmersQty * ElmersPrice) << "\n";
 
     SubTotal = (WhizbangsQty * WhizbangsPrice) + (GizmosQty * GizmosPrice) + (WidgetsQty * WidgetsPrice) + (WabbitsQty * WabbitsPrice) + (ElmersQty * ElmersPrice);
-
-    cout << setw(20) << "Subtotal : " << SubTotal << "\n";
-    cout << setw(20) << "Shipping : " << (SubTotal * ShippingRate) << "\n";
-    cout << setw(20) << "Sales Tax : " << (SubTotal * SalesTaxRate) << "\n";
+    cout << "Subtotal : " << SubTotal << "\n";
+    cout << "Shipping : " << (SubTotal * ShippingRate) << "\n";
+    cout << "Sales Tax : " << (SubTotal * SalesTaxRate) << "\n";
     //Yes I know but I don't want more variables, this calculation is negligible.
-    cout << setw(20) << "Total : " << ((SubTotal * ShippingRate) + (SubTotal * ShippingRate) + SubTotal) << "\n";
+    cout << "Total : " << ((SubTotal * ShippingRate) + (SubTotal * SalesTaxRate) + SubTotal) << "\n";
 
     cout << "Process another order [Y] or N: ";
     cin >> RunAgain;
